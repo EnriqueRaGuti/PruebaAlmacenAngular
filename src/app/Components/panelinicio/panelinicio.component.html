@@ -1,0 +1,90 @@
+<p-toolbar>
+    <div class="p-toolbar-group-left">            
+        <i class="pi pi-bars"></i>  
+    </div>
+    <div class="center">            
+        <h1>Almacén</h1>
+    </div>
+    <div class="p-toolbar-group-right">
+        <i class="pi pi-home icono"></i>
+        <i class="pi pi-inbox icono"></i>
+        <i class="pi pi-th-large icono"></i>
+        <p-splitButton label="Cuenta" icon="pi pi-home"></p-splitButton>
+    </div>
+</p-toolbar>
+
+<div class="container">
+    <!-- MENU LEFT -->
+    <div class="panel-menu">
+        <button class="p-button" type="button" (click)="irIngresar()"><!---->
+            <span class="pi pi-plus-circle p-button-icon p-button-icon-left" aria-hidden="true"></span><!---->
+            <span class="p-button-label ng-star-inserted" aria-hidden="false">Crear</span><!---->
+            <span class="p-ink"></span>
+        </button>
+        <p-panelMenu [model]="itemsMenu"></p-panelMenu>
+    </div>
+    
+<!-- VIEW -->
+    <div class="p-dataview-content">
+        <div class="p-grid p-nogutter grid grid-nogutter">
+            
+            <div _ngcontent-tmb-c67="" class="p-col-12 p-md-4 ng-star-inserted" *ngFor="let p of product">
+                <div _ngcontent-tmb-c67="" class="product-grid-item card">
+                    <div _ngcontent-tmb-c67="" class="product-grid-item-top">
+                        <div _ngcontent-tmb-c67="" (click)="editar(p)">
+                            <i _ngcontent-tmb-c67="" class="pi pi-pencil product-category-icon" ></i>
+                        </div>
+                        <span _ngcontent-tmb-c67="" class="product-badge status-instock">{{p.stock}}</span>
+                    </div>
+                    <div _ngcontent-tmb-c67="" class="product-grid-item-content">
+                        <img _ngcontent-tmb-c67="" src="assets/images/cono.png" alt="Bamboo Watch">
+                        <div _ngcontent-tmb-c67="" class="product-name name">{{p.name}}</div>
+                    </div>
+                    <div _ngcontent-tmb-c67="" class="product-grid-item-bottom">
+                        <span _ngcontent-tmb-c67="" class="product-price">{{p.price | currency}}</span>
+                        <div class="p-field-checkbox">
+                            <p-checkbox name="group1" [value]="p.id" inputId="ny" [(ngModel)]="selectedValues"></p-checkbox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+        </div>
+    </div>
+
+</div>
+<!-- DIALOG -->
+<p-dialog header="Almacén" [(visible)]="display" position="top">
+    <div>
+        <div class="p-grid p-fluid input">
+            <div class="p-col-12 p-md-4">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-id-card"></i></span>
+                    <input type="text" pInputText placeholder="Name" [(ngModel)]="name">         
+                </div>
+            </div>
+        </div>
+        <div class="p-grid p-fluid input">
+            <div class="p-col-12 p-md-4">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-box"></i></span>
+                    <input type="number" pInputText placeholder="Stock" [(ngModel)]="stock">         
+                </div>
+            </div>
+        </div>
+        <div class="p-grid p-fluid input">
+            <div class="p-col-12 p-md-4">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
+                    <input type="number" pInputText placeholder="Price" [(ngModel)]="price">         
+                </div>
+            </div>
+        </div>
+        
+        <p-button label="Editar"></p-button>
+    </div>
+    
+        <ng-template pTemplate="footer">
+            <p-button icon="pi pi-check" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+</p-dialog>

@@ -1,0 +1,30 @@
+<div class="center">            
+    <h4>FORMULARIO</h4>
+    <div class="p-grid p-fluid input">
+        <div class="p-col-12 p-md-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-id-card"></i></span>
+                <input type="text" pInputText placeholder="Name" [(ngModel)]="producto.name">         
+            </div>
+        </div>
+    </div>
+    <div class="p-grid p-fluid input">
+        <div class="p-col-12 p-md-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-box"></i></span>
+                <input type="number" pInputText placeholder="Stock" [(ngModel)]="producto.stock">         
+            </div>
+        </div>
+    </div>
+    <div class="p-grid p-fluid input">
+        <div class="p-col-12 p-md-4">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
+                <input type="number" pInputText placeholder="Price" [(ngModel)]="producto.price">         
+            </div>
+        </div>
+    </div>
+    
+    <p-button label="Crear" (click)="crear()"></p-button>
+    <p-button label="Regresar" (click)="volver()" style="margin-left: 30px;"></p-button>
+</div>
